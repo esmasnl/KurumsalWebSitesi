@@ -80,7 +80,7 @@ namespace KurumsalWeb.Controllers
                 WebMail.SmtpServer = "smtp.gmail.com";
                 WebMail.EnableSsl = true;
                 WebMail.UserName = "esmaasnli1@gmail.com";
-                WebMail.Password = "dzodglbsrbypsfrx";
+                WebMail.Password = "sifre";
                 WebMail.SmtpPort = 587;
                 WebMail.Send(eposta, "Admin Panel Giriş Şifreniz", "Şifreniz : " + yenisifre);
                 ViewBag.Uyari = "Mesajınız Gönderilmiştir.";
