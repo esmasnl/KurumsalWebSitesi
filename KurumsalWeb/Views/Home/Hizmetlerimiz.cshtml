@@ -1,0 +1,49 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Hizmet>
+@{
+    ViewBag.Title = "Hizmetlerimiz";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Our Services Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Hizmetlerimiz</h2>
+                <ol>
+                    <li><a href="/Home/Index/">Ana Sayfa</a></li>
+                    <li>Hizmetlerimiz</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Our Services Section -->
+    <!-- ======= Service Details Section ======= -->
+    <section class="service-details">
+        <div class="container">
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+                   
+                        <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="@item.ResimURL" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <a class="card-title"> @Html.Raw(item.Baslik)</a>
+                                    <p class="card-text"><a>@Html.Raw(item.Aciklama)</a> </p>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                   
+                }
+
+                </div>
+            </div>
+</section><!-- End Service Details Section -->
+</main>

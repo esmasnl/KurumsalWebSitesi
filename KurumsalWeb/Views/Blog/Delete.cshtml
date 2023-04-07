@@ -1,0 +1,75 @@
+﻿@model KurumsalWeb.Models.Model.Blog
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>BLOG</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Blog</a></li>
+                <li class="breadcrumb-item active">Sil</li>
+
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+
+            <h3>Silmek istediğinize emin misiniz?</h3>
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Kategori.KategoriAd)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Kategori.KategoriAd)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Baslik)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Baslik)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.İcerik)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.İcerik)
+                    </dd>
+
+                    <dt>
+                        <img src=" @Model.ResimURL " width="50" height="50" />
+                    </dt>
+
+                  
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Sil" class="btn btn-outline-primary" /> |
+                        @Html.ActionLink("Geri Dön", "Index")
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+</main>

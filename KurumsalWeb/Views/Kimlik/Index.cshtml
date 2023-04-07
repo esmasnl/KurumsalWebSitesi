@@ -1,0 +1,83 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Kimlik>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Site Kimlik</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a >Kimlik</a></li>
+                <li class="breadcrumb-item active">Ana Sayfa</li>
+
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <p>
+                <a class="btn btn-outline-primary" href="/Kimlik/Create/">Yeni Kimlik Ekle</a>
+            </p>
+            <table class="table table-bordered table-striped table-responsive-sm">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Keywords)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LogoURL)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Unvan)
+                    </th>
+                    <th>
+                        İşlemler
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Keywords)
+                        </td>
+                        <td>
+                            @Html.Raw(item.Description)
+                        </td>
+                        <td>
+                            <img class="img-responsive" src="@item.LogoURL" width="45" height="45" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Unvan)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.KimlikId })
+                            @Html.ActionLink(" | Sil", "Delete", new { id = item.KimlikId })
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+
+</main>

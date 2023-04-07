@@ -1,0 +1,91 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Iletisim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>İLETİŞİM</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>İletişim</a></li>
+                <li class="breadcrumb-item active">Ana Sayfa</li>
+
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <p>
+                <a class="btn btn-outline-primary" href="/Iletisim/Create/">Yeni İletişim Ekle</a>
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Adres)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Telefon)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fax)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Whatsapp)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Facebook)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Twitter)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Instagram)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Adres)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Telefon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fax)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Whatsapp)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Facebook)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Twitter)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Instagram)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.IletisimId })
+                            @Html.ActionLink(" | Sil", "Delete", new { id = item.IletisimId })
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+
+</main>

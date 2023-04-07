@@ -1,0 +1,102 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<KurumsalWeb.Models.Model.Blog>
+
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= Blog Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Blog</h2>
+
+                <ol>
+                    <li><a href="/Home/Index/">Ana Sayfa</a></li>
+                    <li>Blog</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row">
+
+                <div class="col-lg-8 ">
+
+                    @foreach (var item in Model)
+                    {
+                        <article class="entry">
+
+                            <div class="entry-img">
+                                <img src="@item.ResimURL" alt="@item.Baslik">
+                            </div>
+
+                            <h2 class="entry-title">
+                                <a href="/Home/BlogDetay/@item.BlogId">@item.Baslik</a>
+                            </h2>
+
+                            <div class="entry-meta">
+                                <ul>
+                                    <li><i class="icon-folder-open"></i><a href="#">@item.Kategori.KategoriAd</a></li>
+                                    @*<li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>*@
+                                </ul>
+                            </div>
+
+                            <div class="entry-content">
+                                <p> 
+                                @Html.Raw(item.İcerik.Substring(0,200))...
+                                </p>
+                                <div class="read-more">
+                                    <a href="/Home/BlogDetay/@item.BlogId">Devamını Oku</a>
+                                </div>
+                            </div>
+
+                        </article><!-- End blog entry -->
+                    }
+
+
+
+
+                    <div class="blog-pagination">
+                       @Html.PagedListPager(Model,Sayfa=>Url.Action("Blog", new { Sayfa }),PagedListRenderOptions.Classic)
+                    </div>
+
+                </div><!-- End blog entries list -->
+
+                <div class="col-lg-4">
+
+                    <div class="sidebar">
+                        <h3 class="sidebar-title">KATEGORİLER</h3>
+                        <div class="sidebar-item categories">
+                           @{ 
+                               Html.RenderAction("BlogKategoriPartial", "Home");
+                           }
+                        </div><!-- End sidebar categories-->
+
+                        <h3 class="sidebar-title">Son Blog Yazıları</h3>
+                        <div class="sidebar-item recent-posts">
+                           @{ 
+                               Html.RenderAction("BlogKayıtPartial", "Home");
+                           }
+
+                        </div><!-- End sidebar recent posts-->
+
+                    </div><!-- End sidebar -->
+
+                </div><!-- End blog sidebar -->
+
+            </div>
+
+        </div>
+    </section><!-- End Blog Section -->
+
+</main><!-- End #main -->

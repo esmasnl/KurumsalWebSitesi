@@ -1,0 +1,42 @@
+﻿@model KurumsalWeb.Models.Model.Hakkimizda
+@{
+    ViewBag.Title = "Hakkımızda";
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>HAKKIMIZDA</h2>
+                <ol>
+                    <li><a href="/Home/Index/">Ana Sayfa</a></li>
+                    <li>Hakkımızda</li>
+                </ol>
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+    <!-- ======= About Section ======= -->
+    <section class="about" data-aos="fade-up">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <img src="~/Content/SiteLayout/assets/img/about.jpg" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                    <h3>Kurumsal Şirketimiz Hakkında</h3>
+                    <p>
+                        @Html.Raw(Model.Aciklama)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Section -->
+
+</main>

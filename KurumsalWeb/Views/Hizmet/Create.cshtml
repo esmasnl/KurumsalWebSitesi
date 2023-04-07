@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script>
+    window.onload = function () {
+        CKEDITOR.replace('editör');
+    };
+</script>
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>HİZMETLER</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Hizmetler</a></li>
+                <li class="breadcrumb-item active">Hizmet Ekle</li>
+
+            </ol>
+        </nav>
+    </div>
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hizmet Ekle</h5>
+
+                    <!-- Browser Default Validation -->
+                    <form class="form-validate form-horizantal" id="feedback_form" method="post" action="/Hizmet/Create" enctype="multipart/form-data">
+                        <div class="col-md-4">
+                            <label for="validationDefault01" class="form-label">Başlık</label>
+                            <input type="text" class="form-control" id="Baslik" name="Baslik" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="validationDefault02" class="form-label">Açıklama</label>
+                            <textarea name="Aciklama" required id="editör"></textarea>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="curl" class="form-label">Resim</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="ResimURL" accept=".jpg,.png,.jpeg" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-outline-primary" type="submit">Kaydet</button>
+                            <button class="btn btn-outline-primary" type="button"> <a href="/Hizmet/Index">İptal</a> </button>
+                        </div>
+                    </form>
+                    <!-- End Browser Default Validation -->
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>

@@ -1,0 +1,56 @@
+﻿@model KurumsalWeb.Models.Model.Kategori
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>KATEGORİ</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a >Kategori</a></li>
+                <li class="breadcrumb-item active">Detay</li>
+
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+
+            <div>
+                <h4>Kategori</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KategoriAd)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.KategoriAd)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Aciklama)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Aciklama)
+                    </dd>
+
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Güncelle", "Edit", new { id = Model.KategoriId }) |
+                @Html.ActionLink("Geri Dön", "Index")
+            </p>
+        </div>
+    </section>
+
+</main>

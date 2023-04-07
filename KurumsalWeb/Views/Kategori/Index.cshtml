@@ -1,0 +1,60 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Kategori>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>KATEGORİ</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Kategori</a></li>
+                <li class="breadcrumb-item active">Ana Sayfa</li>
+
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+            <p>
+                <a class="btn btn-outline-primary" href="/Kategori/Create/">Yeni Kategori Ekle</a>
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.KategoriAd)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aciklama)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.KategoriAd)
+                        </td>
+                        <td>
+                            @Html.Raw( item.Aciklama)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.KategoriId }) |
+                            @Html.ActionLink("Detay", "Details", new { id = item.KategoriId }) |
+                            @Html.ActionLink("Sil", "Delete", new { id = item.KategoriId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+
+</main>

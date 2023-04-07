@@ -1,0 +1,76 @@
+﻿@model KurumsalWeb.Models.Model.Hizmet
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script>
+    window.onload = function () {
+        CKEDITOR.replace('editör');
+    };
+</script>
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>HİZMETLER</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Hizmetler</a></li>
+                <li class="breadcrumb-item active">Hizmet Güncelle</li>
+
+            </ol>
+        </nav>
+    </div>
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Hizmet Güncelle</h5>
+
+                    
+                    <form class="form-validate form-horizantal" id="feedback_form" method="post" action="/Hizmet/Edit/@Model.HizmetId" enctype="multipart/form-data">
+                        <div class="col-md-4">
+                            <label for="validationDefault01" class="form-label">Başlık</label>
+                            <input type="text" class="form-control" id="Baslik" name="Baslik" required value="@Model.Baslik">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="validationDefault02" class="form-label">Açıklama</label>
+                            <textarea name="Aciklama" required id="editör">@Model.Aciklama</textarea>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="curl" class="form-label">Önceki Resim</label>
+                            <div class="input-group">
+                               <img src="@Model.ResimURL" height="100" width="100"/>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label for="curl" class="form-label">Resim</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="ResimURL" accept=".jpg,.png,.jpeg" />
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <button class="btn btn-outline-primary" type="submit">Kaydet</button>
+                            <button class="btn btn-outline-primary" type="button"> <a href="/Hizmet/Index">İptal</a> </button>
+                        </div>
+                    </form>
+                   
+                    
+   
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+

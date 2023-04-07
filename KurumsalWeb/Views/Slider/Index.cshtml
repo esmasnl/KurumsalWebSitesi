@@ -1,0 +1,69 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>SLİDER</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a >Slider</a></li>
+                <li class="breadcrumb-item active">Ana Sayfa</li>
+
+            </ol>
+        </nav>
+    </div>
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <p>
+            <a href="/Slider/Create/" class="btn btn-outline-primary">Yeni Slider Ekle</a>
+            </p>
+            <table class="table table-striped">
+                <tr>
+                 
+                    <th>
+                        @Html.DisplayNameFor(model => model.Baslik)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aciklama)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResimURL)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                    
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Baslik)
+                        </td>
+                        <td>
+                            @Html.Raw( item.Aciklama)
+                        </td>
+                        <td>
+                          <img src="@item.ResimURL" width="50" height="50" />
+                        </td>
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.SliderId }) |
+                            @Html.ActionLink("Detay", "Details", new { id = item.SliderId }) |
+                            @Html.ActionLink("Sil", "Delete", new { id = item.SliderId })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+
+</main>

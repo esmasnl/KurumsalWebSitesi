@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KurumsalWeb.Models.Model.Hakkimizda>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>HAKKIMIZDA</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Hakkımızda</a></li>
+                <li class="breadcrumb-item active">Ana Sayfa</li>
+
+            </ol>
+            <a class="btn btn-outline-primary" href="/Hakkimizda/Create/">Yeni Hakkımızda Ekle</a>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Aciklama)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.Raw(item.Aciklama)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Güncelle", "Edit", new { id = item.HakkimizdaId })
+                            @Html.ActionLink(" | Sil", "Delete", new { id = item.HakkimizdaId })
+
+                        </td>
+
+
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </section>
+
+</main>

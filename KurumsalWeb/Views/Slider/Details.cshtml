@@ -1,0 +1,61 @@
+﻿@model KurumsalWeb.Models.Model.Slider
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>SLİDER</h1>
+
+        <nav>
+
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a>Slider</a></li>
+                <li class="breadcrumb-item active">Detay</li>
+
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Baslik)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Aciklama)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Aciklama)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ResimURL)
+                </dt>
+
+                <dd>
+                   <img src=" @Model.ResimURL " width="50" height="50" />
+                </dd>
+
+            </dl>
+      
+        <p>
+            @Html.ActionLink("Güncelle", "Edit", new { id = Model.SliderId }) |
+            @Html.ActionLink("Geri Dön", "Index")
+        </p>
+       
+        </div>
+    </section>
+
+</main>
